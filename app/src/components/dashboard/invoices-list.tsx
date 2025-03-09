@@ -13,6 +13,18 @@ import { useAccount, useReadContract } from "wagmi";
 import { nevoContractABI as contractABI, nevoContractAddress as contractAddress } from "@/lib/contract";
 import { formatUnits } from "ethers";
 
+interface InvoiceType {
+    id: string
+    title: string
+    clientName: string
+    items: string[]
+    prices: number[]
+    total: string
+    creator: string
+    dueDate: number
+    status: string
+}
+
 export function InvoicesList() {
     const { address, isConnected } = useAccount();
 
@@ -70,7 +82,7 @@ export function InvoicesList() {
     );
 }
 
-function InvoiceRow({ invoice }) {
+function InvoiceRow({ invoice }: { invoice: InvoiceType }) {
     return (
         <tr className="border-b">
             <td className="px-4 py-3 text-sm">{invoice.id}</td>
@@ -80,8 +92,8 @@ function InvoiceRow({ invoice }) {
             <td className="px-4 py-3 text-sm">
                 ${parseFloat(formatUnits(invoice.total, 18)).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </td>
-            <td className="px-4 py-3 text-sm">{invoice.client}</td>
-            <td className="px-4 py-3 text-sm">{invoice.lastUpdated}</td>
+            <td className="px-4 py-3 text-sm">{invoice.clientName}</td>
+            <td className="px-4 py-3 text-sm">{invoice.dueDate}</td>
             <td className="px-4 py-3 text-right">
                 <InvoiceActions />
             </td>
@@ -89,7 +101,7 @@ function InvoiceRow({ invoice }) {
     );
 }
 
-function StatusBadge({ status }) {
+function StatusBadge({ status }: { status: string }) {
     let bgColor = "bg-gray-100 text-gray-800";
     if (status === "Paid") bgColor = "bg-green-100 text-green-800";
     else if (status === "Outstanding") bgColor = "bg-amber-100 text-amber-800";
