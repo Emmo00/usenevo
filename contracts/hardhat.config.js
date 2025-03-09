@@ -12,7 +12,7 @@ module.exports = {
     arbitrum_testnet: {
       url: ARBITRUM_SEPOLIA_URL,
       accounts: [PRIVATE_KEY],
-      chainId: ARBITRUM_SEPOLIA_CHAIN_ID,
+      chainId: parseInt(ARBITRUM_SEPOLIA_CHAIN_ID),
     },
   },
 };
