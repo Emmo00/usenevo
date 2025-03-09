@@ -14,9 +14,11 @@ export default function Home() {
           <NevoLogo className="h-8 w-8" />
           <span className="text-xl font-bold">Nevo</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="flex items-center gap-6">
           <ConnectBtn />
-          <GoToDashboardBtn>Get Started</GoToDashboardBtn>
+          <div className="hidden md:block">
+            <GoToDashboardBtn>Get Started</GoToDashboardBtn>
+          </div>
         </nav>
       </header>
 
