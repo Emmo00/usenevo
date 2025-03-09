@@ -39,7 +39,7 @@ export function MetricsCards() {
     // and invoice.total is a BigNumber with 18 decimals.
     const totalRevenue = useMemo(() => {
         if (!userInvoices) return 0;
-        return userInvoices.reduce((acc: bigint, invoice: any) => {
+        return (Array.isArray(userInvoices) ? userInvoices : []).reduce((acc: bigint, invoice: any) => {
             // Ensure invoice.total is a bigint
             const invoiceTotal = typeof invoice.total === "bigint" ? invoice.total : BigInt(invoice.total);
             // Check if invoice status indicates it's paid (assuming "1" is paid)

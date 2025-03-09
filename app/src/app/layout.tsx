@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   description: "Create and manage crypto invoices for creators and freelancers",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const cookie = headers().get("cookie");
+  const cookie = (await headers()).get("cookie");
 
   return (
     <html lang="en">
