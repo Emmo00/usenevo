@@ -16,7 +16,7 @@ interface IERC20 {
     function balanceOf(address account) external view returns (uint256);
 }
 
-contract CryptoInvoice {
+contract Nevo {
     address public owner;
     IERC20 public usdc;
     uint256 public feePercentage = 2; // 2% fee for the contract owner

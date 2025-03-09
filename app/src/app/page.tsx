@@ -1,11 +1,9 @@
-import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Wallet, ArrowRight } from "lucide-react"
-import DashboardMockup from "@/components/dashboard-mockup"
+import { ArrowRight } from "lucide-react"
 import DashboardMockupImage from "@/components/dashboard-mockup-image"
 import NevoLogo from "@/components/logos/nevo"
 import { ConnectBtn } from "@/components/connectButton"
+import GoToDashboardBtn from "@/components/goToDashboardBtn"
 
 export default function Home() {
   return (
@@ -18,7 +16,7 @@ export default function Home() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           <ConnectBtn />
-          <Button size="sm">Get Started</Button>
+          <GoToDashboardBtn>Get Started</GoToDashboardBtn>
         </nav>
       </header>
 
@@ -29,18 +27,18 @@ export default function Home() {
           Nevo is the platform that helps professional creators send and manage invoices.
         </p>
         <div className="flex flex-col gap-4 min-[400px]:flex-row">
-          <Button size="lg" className="gap-2">
+          <GoToDashboardBtn>
             Start sending invoices
             <ArrowRight className="h-4 w-4" />
-          </Button>
+          </GoToDashboardBtn>
         </div>
         <p className="text-sm text-muted-foreground">
-          <span className="font-medium">32</span> invoices have been sent from Nevo.
+          <span className="font-medium">2</span> invoices have been sent from Nevo.
         </p>
       </section>
 
       {/* Dashboard Mockup */}
-      <section className="container mx-auto px-4 py-8 md:py-8">
+      <section className="container mx-auto px-4 py-4 md:py-8">
         <div className="overflow-hidden rounded-lg border bg-background shadow-xl">
           <DashboardMockupImage />
         </div>

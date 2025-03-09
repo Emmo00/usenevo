@@ -8,6 +8,7 @@ import NevoLogo from "@/components/logos/nevo"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Wallet } from "lucide-react"
+import { ConnectBtn } from "../connectButton"
 
 export function DashboardShell({ children }: DashboardShellProps) {
     return (
@@ -19,10 +20,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
                     <span className="text-xl font-bold">Nevo</span>
                 </Link>
                 <nav className="hidden md:flex items-center gap-6">
-                    <Button variant="outline" size="sm" className="gap-2">
-                        <Wallet className="h-4 w-4" />
-                        Connect Wallet
-                    </Button>
+                    <ConnectBtn />
                 </nav>
             </header>
             <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">

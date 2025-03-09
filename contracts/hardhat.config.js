@@ -1,24 +1,18 @@
 require("@nomicfoundation/hardhat-toolbox");
-
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  solidity: "0.8.28",
-};
-require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-ignition-ethers");
 
 require("dotenv").config();
 
-const { METIS_SEPOLIA_RPC_URL, PRIVATE_KEY } = process.env;
+const { ARBITRUM_SEPOLIA_URL, ARBITRUM_SEPOLIA_CHAIN_ID, PRIVATE_KEY } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.28",
   networks: {
-    metis_testnet: {
-      url: METIS_SEPOLIA_RPC_URL, // Metis Goerli Testnet RPC
-      accounts: [PRIVATE_KEY], // Load from .env file
-      chainId: 59902, // Metis Goerli Testnet Chain ID
+    arbitrum_testnet: {
+      url: ARBITRUM_SEPOLIA_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: ARBITRUM_SEPOLIA_CHAIN_ID,
     },
   },
 };

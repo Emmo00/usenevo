@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { ConnectWalletButton } from "@/components/invoices/connect-wallet-button"
+import { ConnectBtn as ConnectWalletButton } from "@/components/connectButton"
 import { PaymentForm } from "@/components/invoices/payment-form"
 import { formatDate } from "@/lib/utils"
 
@@ -170,7 +170,7 @@ export default function InvoicePaymentPage() {
                                                 <p className="text-center mb-4 text-muted-foreground">
                                                     Connect your wallet to pay this invoice with USDC on Arbitrum
                                                 </p>
-                                                <ConnectWalletButton onConnect={handleWalletConnect} />
+                                                <ConnectWalletButton />
                                             </div>
                                         ) : (
                                             <PaymentForm amount={amount} invoiceId={invoice.id} onPaymentComplete={handlePaymentComplete} />
